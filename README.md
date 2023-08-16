@@ -20,6 +20,6 @@ Welcome to the GitHub repository for "The Perfect Trip" – your go-to site for 
 Contributions to the project are highly appreciated! If you have ideas for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request on our GitHub repository.
 
 ## Get Involved
-Now to get a sneak peek of what "The Perfect Trip" has to offer. Stay tuned for updates and happy travels![Screen recording 2023-08-16 15.35.26.webm](https://github.com/latifahassan/thePerfectTrip/assets/124886048/9d37563c-8871-4608-aad6-0b32fb754633)
+Now to get a sneak peek of what "The Perfect Trip" has to offer. Stay tuned for updates and happy travels!
 
-
+[theperfecttrip.webm](https://github.com/latifahassan/thePerfectTrip/assets/124886048/3ec854b9-aa93-433a-9986-5854de444162)
