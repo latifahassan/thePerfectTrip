@@ -1,0 +1,69 @@
+/* video.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling */
+  }
+  
+  .main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .video-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Match the width for a circular image */
+    border-radius: 50%; /* Make the image circular */
+    z-index: 3; /* Ensure the logo is on top of the video */
+  }
+  
+  .perfect-trip-sign {
+    position: absolute;
+    top: 20px; /* Adjust the top position to match the logo */
+    right: 20px; /* Adjust the right position as needed */
+    font-family: 'Arial', sans-serif;
+    font-size: 3rem; /* Adjust font size if needed */
+    color: #ff9900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 3px;
+    z-index: 2;
+    padding-left: 10px;
+  }
+  
+  .fade-in-text {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .fade-in-text.show {
+    opacity: 1;
+  }
+  
