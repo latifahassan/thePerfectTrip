@@ -1,5 +1,5 @@
 import About from "./components/About"
-import Questionnaire from "./components/Questionnaire"
+//import Questionnaire from "./components/Questionnaire"
 import Video from "./components/video"
 
 
@@ -9,7 +9,7 @@ function App() {
     <>
         <Video />
         <About/>
-        <Questionnaire/>
+        {/* <Questionnaire/> */}
     </>
   )
 }
