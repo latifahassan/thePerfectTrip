@@ -32,7 +32,7 @@ setCurrentQuestion(currentQuestion + 1);
 }
 };
 
-
+//api needed to be made with node and express helper functinos and endpoints need to be determined
 const { question, options } = questions[currentQuestion];
 
 
