@@ -60,7 +60,7 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  font-size: 2rem;
+  font-size: 4rem;
   color: white;
   font-weight: bold;
   }
@@ -68,7 +68,7 @@ body, html {
   
   .static-text {
   position: absolute;
-  top: 50%;
+  top:60%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
