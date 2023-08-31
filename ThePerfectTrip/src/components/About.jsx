@@ -7,10 +7,9 @@ export default function About() {
   };
 
   const headingStyle = {
-    paddingTop: '50px',
+    paddingTop: '100px',
   };
-// troubleshooted conflict with css
-// found the error
+
   const paragraphStyle = {
     fontSize: '20px',
     paddingTop: '20px',
@@ -25,6 +24,7 @@ export default function About() {
     background: 'black',
     color: 'white',
     fontSize: '13px',
+    marginBottom: '100px',
     marginTop: '20px',
   };
 
