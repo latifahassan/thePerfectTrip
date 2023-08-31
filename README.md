@@ -1,5 +1,4 @@
 # The Perfect Trip
-# The Perfect Trip
 
 Welcome to the GitHub repository for "The Perfect Trip" – your go-to site for finding the perfect holiday destination based on your interests. Whether you're into beaches, mountains, or city vibes, we've got you covered. It is a work still in progress.
 
@@ -22,4 +21,7 @@ Contributions to the project are highly appreciated! If you have ideas for new f
 ## Get Involved
 Now to get a sneak peek of what "The Perfect Trip" has to offer. Stay tuned for updates and happy travels!
 
-[theperfecttrip.webm](https://github.com/latifahassan/thePerfectTrip/assets/124886048/3ec854b9-aa93-433a-9986-5854de444162)
+
+https://github.com/latifahassan/thePerfectTrip/assets/124886048/db22cb55-4367-4392-bc32-7891f12da683
+
+
