@@ -7,7 +7,7 @@ import perfectLogo from './the-perfect-trip-logo.png'; // Make sure the image pa
 const Video = () => {
 return (
 <div className='main'>
-<video className="video-element" src={backdrop} autoPlay loop muted />
+<video className="video-element" src={backdrop} autoPlay loop muted playsInline />
 <div className="overlay">
 <div className='content'>
 <img src={perfectLogo} alt="The Perfect Trip Logo" className="logo" />
