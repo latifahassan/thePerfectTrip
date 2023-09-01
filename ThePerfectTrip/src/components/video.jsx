@@ -1,7 +1,6 @@
 import './video.css';
 import backdrop from '../assets/perfect.mp4';
 import perfectLogo from './the-perfect-trip-logo.png'; // Make sure the image path is correct
-//import { Link } from 'react-router-dom'
 
 
 const Video = () => {

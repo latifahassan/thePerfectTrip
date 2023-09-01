@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function About() {
   const containerStyle = {
     padding: '0 10%', // Equal padding on left and right
@@ -35,7 +37,9 @@ export default function About() {
         Discover your dream destination effortlessly with our holiday generator!
         Unleash amazing travel possibilities even when unsure.
       </p>
-      <button style={buttonStyle}>Find your dream destination</button>
+      <Link to="/questionnaire" style={{ textDecoration: 'none' }}>
+        <button style={buttonStyle}>Find your dream destination</button>
+      </Link>
     </div>
   );
 }
