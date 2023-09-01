@@ -9,14 +9,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Common path */}
         <Route path="/" element={<div>
           <Video />
           <About />
           <Mission />
         </div>} />
-
-        {/* Separate path */}
         <Route path="/questionnaire" element={<Questionnaire />} />
       </Routes>
     </Router>
