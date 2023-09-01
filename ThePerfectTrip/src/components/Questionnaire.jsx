@@ -33,7 +33,7 @@ const Questionnaire = () => {
           };
 
           // Make API request to backend
-          const response = await axios.post('http://localhost:5000/suggest-destination', userPreferences);
+          const response = await axios.post('https://perfecttripbackend.onrender.com/suggest-destination', userPreferences);
 
           // Update suggestedDestination state with the fetched destination
           setSuggestedDestination(response.data);
@@ -85,9 +85,6 @@ const Questionnaire = () => {
         <img src={suggestedDestination.image} style={{width:'100px',height:'100px'}}/>
       </div>
     );
-  } else {
-    // Loading state while waiting for destination data
-    return <p>Loading...</p>;
   }
 };
 

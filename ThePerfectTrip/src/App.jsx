@@ -6,7 +6,6 @@ import Questionnaire from "./components/Questionnaire"
 
 
 function App() {
-
   return (
     <>
         <Video />
