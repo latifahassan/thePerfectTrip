@@ -62,13 +62,20 @@ const Questionnaire = () => {
   if (suggestedDestination) {
     // Display the suggested destination
     return (
-      <div>
-        <h2>Suggested Destination</h2>
-        <p>Name: {suggestedDestination.name}</p>
-        <p>Country: {suggestedDestination.country}</p>
-        <img src={suggestedDestination.image} style={{ width: '100px', height: '100px' }} alt="Destination" />
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh', // This ensures that the content is vertically centered within the viewport
+      }}>
+        <div>
+          <h2 style={{ fontSize: '1.5em' }}>Suggested Destination</h2>
+          <p style={{ fontSize: '1.2rem' }}>Name: {suggestedDestination.name}</p>
+          <p style={{ fontSize: '1.2rem' }}>Country: {suggestedDestination.country}</p>
+          <img src={suggestedDestination.image} style={{ width: '300px', height: '300px' }} alt="Destination" />
+        </div>
       </div>
-    );
+    );    
   } else if (currentQuestion < questions.length) {
     // Display the current question and options
     const { question, options } = questions[currentQuestion];
