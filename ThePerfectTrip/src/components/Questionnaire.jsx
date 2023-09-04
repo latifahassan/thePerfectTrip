@@ -12,14 +12,7 @@ const questions = [
   },
   {
     question: 'What is your preferred travel activity?',
-    options: [
-      'Relaxing on the beach',
-      'Watersports',
-      'Sightseeing',
-      'Wintersports',
-      'Eating',
-      'Party',
-    ],
+    options: ['Relaxing on the beach', 'Watersports', 'Sightseeing', 'Wintersports', 'Eating', 'Party'],
   },
 ];
 
@@ -37,22 +30,14 @@ const Questionnaire = () => {
           const userPreferences = {
             type: answers[0],
             companions: answers[1],
-            activities: selectedActivities, // Use selectedActivities instead of answers[2]
+            activities: selectedActivities, // Use selected activities
           };
 
-          // Ensure that exactly two activities are selected
-          if (selectedActivities.length === 2) {
-            // Make API request to backend
-            const response = await axios.post(
-              'https://perfecttripbackend.onrender.com/suggest-destination',
-              userPreferences
-            );
+          // Make API request to backend
+          const response = await axios.post('https://perfecttripbackend.onrender.com/suggest-destination', userPreferences);
 
-            // Update suggestedDestination state with the fetched destination
-            setSuggestedDestination(response.data);
-          } else {
-            console.error('Please select exactly two activities.');
-          }
+          // Update suggestedDestination state with the fetched destination
+          setSuggestedDestination(response.data);
         } catch (error) {
           console.error('Error fetching suggested destination:', error);
         }
@@ -63,20 +48,21 @@ const Questionnaire = () => {
   }, [currentQuestion, answers, selectedActivities]);
 
   const handleAnswer = (selectedOption) => {
-    if (currentQuestion === 2) {
-      // Check if the selected option is already in the selectedActivities array
-      if (!selectedActivities.includes(selectedOption)) {
-        // Ensure that only two activities are selected
-        if (selectedActivities.length < 2) {
-          setSelectedActivities([...selectedActivities, selectedOption]);
-        }
-      }
-    } else {
-      setAnswers([...answers, selectedOption]);
+    if (answers.length === 2) {
+      // If two answers have already been selected, reset the selected activities
+      setSelectedActivities([]);
     }
+
+    if (currentQuestion === 2 && selectedActivities.length < 2) {
+      // Allow selecting two activities for the third question
+      setSelectedActivities([...selectedActivities, selectedOption]);
+    }
+
+    setAnswers([...answers, selectedOption]);
 
     setCurrentQuestion(currentQuestion + 1);
   };
+
   if (currentQuestion < questions.length) {
     // Display the current question and options
     const { question, options } = questions[currentQuestion];
@@ -84,13 +70,7 @@ const Questionnaire = () => {
     return (
       <div>
         <h2>{question}</h2>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '10px',
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
           {options.map((option, index) => (
             <div
               key={index}
@@ -114,11 +94,7 @@ const Questionnaire = () => {
         <h2>Suggested Destination</h2>
         <p>Name: {suggestedDestination.name}</p>
         <p>Country: {suggestedDestination.country}</p>
-        <img
-          src={suggestedDestination.image}
-          style={{ width: '100px', height: '100px' }}
-          alt="Suggested Destination"
-        />
+        <img src={suggestedDestination.image} style={{ width: '100px', height: '100px' }} alt="Destination" />
       </div>
     );
   }
