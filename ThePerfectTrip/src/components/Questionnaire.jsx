@@ -1,24 +1,32 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const questions = [
-{
-question: 'What type of holiday do you prefer?',
-options: ['Beach', 'City', 'Mountains', 'Countryside'],
-},
-{
-question: 'Who are you travelling with?',
-options: ['Friends', 'Family', 'Partner']
-},
-{
-question: 'What is your preferred travel activity?',
-options: ['Relaxing on the beach', 'Watersports','Sightseeing', 'Wintersports','Eating','Party'],
-},
+  {
+    question: 'What type of holiday do you prefer?',
+    options: ['Beach', 'City', 'Mountains', 'Countryside'],
+  },
+  {
+    question: 'Who are you travelling with?',
+    options: ['Friends', 'Family', 'Partner'],
+  },
+  {
+    question: 'What is your preferred travel activity?',
+    options: [
+      'Relaxing on the beach',
+      'Watersports',
+      'Sightseeing',
+      'Wintersports',
+      'Eating',
+      'Party',
+    ],
+  },
 ];
 
 const Questionnaire = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
+  const [selectedActivities, setSelectedActivities] = useState([]);
   const [suggestedDestination, setSuggestedDestination] = useState(null);
 
   useEffect(() => {
@@ -29,11 +37,14 @@ const Questionnaire = () => {
           const userPreferences = {
             type: answers[0],
             companions: answers[1],
-            activities: answers[2],
+            activities: selectedActivities, // Use selectedActivities instead of answers[2]
           };
 
           // Make API request to backend
-          const response = await axios.post('https://perfecttripbackend.onrender.com/suggest-destination', userPreferences);
+          const response = await axios.post(
+            'https://perfecttripbackend.onrender.com/suggest-destination',
+            userPreferences
+          );
 
           // Update suggestedDestination state with the fetched destination
           setSuggestedDestination(response.data);
@@ -44,10 +55,21 @@ const Questionnaire = () => {
 
       fetchSuggestedDestination();
     }
-  }, [currentQuestion, answers]);
+  }, [currentQuestion, answers, selectedActivities]);
 
   const handleAnswer = (selectedOption) => {
-    setAnswers([...answers, selectedOption]);
+    if (currentQuestion === 2) {
+      // Check if the selected option is already in the selectedActivities array
+      if (!selectedActivities.includes(selectedOption)) {
+        // Ensure that only two activities are selected
+        if (selectedActivities.length < 2) {
+          setSelectedActivities([...selectedActivities, selectedOption]);
+        }
+      }
+    } else {
+      setAnswers([...answers, selectedOption]);
+    }
+
     setCurrentQuestion(currentQuestion + 1);
   };
 
@@ -58,7 +80,13 @@ const Questionnaire = () => {
     return (
       <div>
         <h2>{question}</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '10px',
+          }}
+        >
           {options.map((option, index) => (
             <div
               key={index}
@@ -82,7 +110,11 @@ const Questionnaire = () => {
         <h2>Suggested Destination</h2>
         <p>Name: {suggestedDestination.name}</p>
         <p>Country: {suggestedDestination.country}</p>
-        <img src={suggestedDestination.image} style={{width:'100px',height:'100px'}}/>
+        <img
+          src={suggestedDestination.image}
+          style={{ width: '100px', height: '100px' }}
+          alt="Suggested Destination"
+        />
       </div>
     );
   }
