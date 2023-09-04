@@ -47,16 +47,7 @@ const Questionnaire = () => {
   }, [currentQuestion, answers]);
 
   const handleAnswer = (selectedOption) => {
-    const currentQuestionObj = questions[currentQuestion];
-
-    if (currentQuestionObj.allowMultiple) {
-      // For the question that allows multiple selections, add the selected option(s) to the answers array
-      setAnswers({ ...answers, activities: [...answers.activities, selectedOption] });
-    } else {
-      // For other questions, update the corresponding answer
-      setAnswers({ ...answers, [currentQuestionObj.question.toLowerCase()]: selectedOption });
-    }
-
+    setAnswers([...answers, selectedOption]);
     setCurrentQuestion(currentQuestion + 1);
   };
 
