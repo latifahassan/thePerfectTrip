@@ -40,14 +40,19 @@ const Questionnaire = () => {
             activities: selectedActivities, // Use selectedActivities instead of answers[2]
           };
 
-          // Make API request to backend
-          const response = await axios.post(
-            'https://perfecttripbackend.onrender.com/suggest-destination',
-            userPreferences
-          );
+          // Ensure that exactly two activities are selected
+          if (selectedActivities.length === 2) {
+            // Make API request to backend
+            const response = await axios.post(
+              'https://perfecttripbackend.onrender.com/suggest-destination',
+              userPreferences
+            );
 
-          // Update suggestedDestination state with the fetched destination
-          setSuggestedDestination(response.data);
+            // Update suggestedDestination state with the fetched destination
+            setSuggestedDestination(response.data);
+          } else {
+            console.error('Please select exactly two activities.');
+          }
         } catch (error) {
           console.error('Error fetching suggested destination:', error);
         }
@@ -72,7 +77,6 @@ const Questionnaire = () => {
 
     setCurrentQuestion(currentQuestion + 1);
   };
-
   if (currentQuestion < questions.length) {
     // Display the current question and options
     const { question, options } = questions[currentQuestion];
