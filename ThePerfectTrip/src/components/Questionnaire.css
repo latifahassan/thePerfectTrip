@@ -1,6 +1,3 @@
 body {
-    background-image: radial-gradient(circle, #898db2, #898db2, #898db2, #898db2, #898db2);
-}
-.card {
-    background-image: radial-gradient(circle, #99aad9, rgb(132, 145, 189), #5d6cb6, #717acc, #272966);
+    background-image: radial-gradient(circle, #d0d2e4, #a8aabe, #a1a4bd, #898db2, #898db2);
 }

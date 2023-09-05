@@ -81,56 +81,66 @@ const Questionnaire = () => {
     // Display the current question and options
     const { question, options } = questions[currentQuestion];
    // ...
-return (
-  <div className='card' style={{
-    width: '40%', // Adjust the width to your preference
-    height: '100%', // Set the height to 50% of the viewport height
-    border: '5px solid #000',
-    borderRadius: '15px',
-    margin: 'auto',
-    marginTop: '200px',
-    background: '#9faee6',
-    paddingBottom: '80px',
-    paddingTop: '80px',
-  }}>
-    <div>
-      <h2 style={{ fontSize: '2rem', textAlign: 'center' }}>{question}</h2>
-      <div
-        style={{
-          display: 'grid',
-          gap: '20px', // Add gap between options vertically
-          gridColumnGap: '10px', // Add gap between options horizontally (adjust as needed)
-          width: '40%', // Adjust the width of the options
-          margin: 'auto',
-        }}
-      >
-        {options.map((option, index) => (
-          <div
-            key={index}
-            style={{
-              padding: '10px',
-              cursor: 'pointer',
-              border: '2px solid #ccc',
-              backgroundColor: selectedActivities.includes(option) ? 'lightblue' : 'white',
-              fontSize: '1.5rem',
-              textAlign: 'center',
-              width: '105%', // Adjust the width of the options
-              marginLeft: '-20px',
-
-            }}
-            onClick={() => handleAnswer(option)}
-          >
-            {option}
-          </div>
-        ))}
+   return (
+    <div className='card' style={{
+      width: '50%', // Adjust the width to your preference
+      height: '50%', // Set the height to 50% of the viewport height
+      border: '10px solid #996dc0',
+      borderRadius: '15px',
+      margin: 'auto',
+      marginTop: '200px',
+      background:'#b3b6d4',
+      paddingBottom: '80px',
+      paddingTop: '30px',
+      transition: 'transform 0.2s ease-in-out',
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'scale(1.05)'; // Scale up on hover
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'scale(1)'; // Return to normal scale
+    }}
+    >
+      <div>
+        <h2 style={{ fontSize: '2rem', textAlign: 'center',paddingTop:'50px' }}>{question}</h2>
+        <div
+          style={{
+            display: 'grid',
+            gap: '20px', // Add gap between options vertically
+            gridColumnGap: '10px', // Add gap between options horizontally (adjust as needed)
+            width: '40%', // Adjust the width of the options
+            margin: 'auto',
+            paddingTop: '50px',
+          }}
+        >
+          {options.map((option, index) => (
+            <div
+              key={index}
+              style={{
+                padding: '10px',
+                cursor: 'pointer',
+                border: '2px solid #ccc',
+                backgroundColor: selectedActivities.includes(option) ? 'lightblue' : 'white',
+                fontSize: '1.5rem',
+                textAlign: 'center',
+                width: '105%', // Adjust the width of the options
+                marginLeft: '-20px',
+  
+              }}
+              onClick={() => handleAnswer(option)}
+            >
+              {option}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
-
-  } else {
-    return null; // If there are no more questions and no suggested destination, return null
-  }
-};
-
-export default Questionnaire;
+  );
+  
+    } else {
+      return null; // If there are no more questions and no suggested destination, return null
+    }
+  };
+  
+  export default Questionnaire;
+  
