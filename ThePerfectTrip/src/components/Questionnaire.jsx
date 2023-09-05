@@ -18,6 +18,7 @@ const questions = [
 ];
 
 const Questionnaire = () => {
+  document.body.style.backgroundImage = 'radial-gradient(circle, #d0d2e4, #a8aabe, #a1a4bd, #898db2, #898db2)';
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [selectedActivities, setSelectedActivities] = useState([]);
