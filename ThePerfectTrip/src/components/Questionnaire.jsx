@@ -60,24 +60,24 @@ const Questionnaire = () => {
       setCurrentQuestion(currentQuestion + 1); // Increment for non-last questions
     }
   };
-
   if (suggestedDestination) {
-    // Display the suggested destination
+    // Display the suggested destination uniquely
     return (
       <div style={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh', // This ensures that the content is vertically centered within the viewport
+        height: '100vh',
+        background: 'linear-gradient(to bottom, #b3b6d4, #a1a4bd)', // Change background for destination display
       }}>
-        <div>
+        <div style={{ textAlign: 'center', background: 'white', padding: '20px 80px 80px', borderRadius: '10px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)' }}>
           <h2 style={{ fontSize: '1.5em' }}>Suggested Destination</h2>
           <p style={{ fontSize: '1.2rem' }}>Name: {suggestedDestination.name}</p>
           <p style={{ fontSize: '1.2rem' }}>Country: {suggestedDestination.country}</p>
-          <img src={suggestedDestination.image} style={{ width: '300px', height: '300px' }} alt="Destination" />
+          <img src={suggestedDestination.image} style={{ width: '300px', height: '300px', borderRadius: '10px' }} alt="Destination" />
         </div>
       </div>
-    );    
+    );  
   } else if (currentQuestion < questions.length) {
     // Display the current question and options
     const { question, options } = questions[currentQuestion];
