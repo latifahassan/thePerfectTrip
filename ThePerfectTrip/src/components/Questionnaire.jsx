@@ -65,20 +65,58 @@ const Questionnaire = () => {
     return (
       <div style={{
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
         alignItems: 'center',
         height: '100vh',
-        background: 'linear-gradient(to bottom, #b3b6d4, #a1a4bd)', // Change background for destination display
+        background: 'linear-gradient(to bottom, #b3b6d4, #a1a4bd)',
       }}>
-        <div style={{ textAlign: 'center', background: 'white', padding: '20px 80px 80px', borderRadius: '10px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)' }}>
-          <h2 style={{ fontSize: '1.5em' }}>Suggested Destination</h2>
-          <p style={{ fontSize: '1.2rem' }}>Name: {suggestedDestination.name}</p>
-          <p style={{ fontSize: '1.2rem' }}>Country: {suggestedDestination.country}</p>
-          <img src={suggestedDestination.image} style={{ width: '300px', height: '300px', borderRadius: '10px' }} alt="Destination" />
+        <div style={{
+          position: 'relative',
+          width: '100%',
+          paddingTop: '75%', // Set to 75% of the width to maintain aspect ratio
+          overflow: 'hidden',
+        }}>
+          <div style={{
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+          }}>
+            <img src={suggestedDestination.image} style={{
+              width: '100%',
+              height: '50%',
+              objectFit: 'cover',
+            }} alt="Destination" />
+          </div>
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            background: 'rgba(0, 0, 0, 0.3)', // Semi-transparent overlay
+            zIndex: 1,
+          }}></div>
+          <div style={{
+            position: 'absolute',
+            top: '10%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            textAlign: 'center',
+            color: 'white',
+            fontSize: '1.5rem',
+            zIndex: 2,
+          }}>
+            <h2 style={{ fontSize: '2em' }}>Suggested Destination</h2>
+            <p>Name: {suggestedDestination.name}</p>
+            <p>Country: {suggestedDestination.country}</p>
+          </div>
         </div>
       </div>
-    );  
-  } else if (currentQuestion < questions.length) {
+    );
+  }
+  else if (currentQuestion < questions.length) {
     // Display the current question and options
     const { question, options } = questions[currentQuestion];
    // ...
