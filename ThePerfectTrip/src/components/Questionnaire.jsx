@@ -68,7 +68,6 @@ const Questionnaire = () => {
         flexDirection: 'column',
         alignItems: 'center',
         height: '100vh',
-        background: 'linear-gradient(to bottom, #b3b6d4, #a1a4bd)',
       }}>
         <div style={{
           position: 'relative',
