@@ -78,15 +78,15 @@ const Questionnaire = () => {
         }}>
           <div style={{
             width: '100%',
-            height: '100%',
             position: 'absolute',
             top: 0,
             left: 0,
           }}>
             <img src={suggestedDestination.image} style={{
+              // objectFit: 'cover',
+              display: 'block',
+              height: '75vh',
               width: '100%',
-              height: '50%',
-              objectFit: 'cover',
             }} alt="Destination" />
           </div>
           <div style={{
@@ -100,13 +100,17 @@ const Questionnaire = () => {
           }}></div>
           <div style={{
             position: 'absolute',
-            top: '10%',
+            top: '20%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             textAlign: 'center',
             color: 'white',
+            background: 'rgba(0, 0, 0, 0.2)', // Adjust the opacity as needed
+            paddingLeft: '20px',
+            paddingRight: '40px',
             fontSize: '1.5rem',
             zIndex: 2,
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
           }}>
             <h2 style={{ fontSize: '2em' }}>Suggested Destination</h2>
             <p>Name: {suggestedDestination.name}</p>
