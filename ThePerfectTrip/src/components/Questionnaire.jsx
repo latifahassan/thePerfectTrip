@@ -127,7 +127,7 @@ const Questionnaire = () => {
       border: '10px solid #996dc0',
       borderRadius: '15px',
       margin: 'auto',
-      marginTop: '200px',
+      marginTop: '100px',
       background:'#b3b6d4',
       paddingBottom: '80px',
       paddingTop: '30px',
